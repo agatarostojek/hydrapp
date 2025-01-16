@@ -5,11 +5,20 @@ const counterValue = document.querySelector(".counter--js");
 let glasses = 0;
 
 /* Local storage key-date element */
-const key = new Date().toISOString().slice(0,10);
+let key = new Date().toLocaleString().slice(0,10);
+
+setInterval(() => {
+    if(key !== new Date().toLocaleString().slice(0,10)) {
+        key = new Date().toLocaleString().slice(0,10);
+        setCounterValue(0);
+        glasses = 0;
+    }
+    }, 1000*60)
 
 if (localStorage.getItem(key)) {
 glasses = parseInt(localStorage.getItem(key));
 }
+
 
 /* Glasses counter; buttons */
 const setCounterValue = (value) => {
