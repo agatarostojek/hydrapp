@@ -7,8 +7,9 @@ let glasses = 0;
 /* Local storage key-date element */
 const key = new Date().toISOString().slice(0,10);
 
-if (localStorage.getItem(key))
+if (localStorage.getItem(key)) {
 glasses = parseInt(localStorage.getItem(key));
+}
 
 /* Glasses counter; buttons */
 const setCounterValue = (value) => {
